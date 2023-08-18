@@ -62,12 +62,25 @@
             background-color: #0056b3;
         }
 
+         footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .container {
                 margin: 20px auto;
                 padding: 10px;
                 width: 90%;
+            }
+            .footer {
+                padding: 10px 0;
             }
         }
     </style>
@@ -88,5 +101,20 @@
             <button type="submit">Send</button>
         </form>
     </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="social-media">
+                <a href="#"><img src="linkedln.png" alt="Facebook"></a>
+                <a href="#"><img src="twitter.webp" alt="Twitter"></a>
+                <a href="#"><img src="github.png" alt="Instagram"></a>
+                <a href="#"><img src="reddit.png" alt="Instagram"></a>
+            </div>
+            <div>
+                <p>&copy; 2023 Your Company. All rights reserved.</p>
+                <p>Contact: contact@yourcompany.com</p>
+            </div
+        </div>
+    </footer>
 </body>
 </html>
