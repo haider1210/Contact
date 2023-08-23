@@ -1,112 +1,198 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-         footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px auto;
-                padding: 10px;
-                width: 90%;
-            }
-            .footer {
-                padding: 10px 0;
-            }
-        }
-    </style>
+    <title>Document</title>
+   <link rel="stylesheet" href="Contact_form.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Contact Us</h1>
-        <form action="" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <div class="form-container" id="form-conatiner">
+
+          <div class="info">
+            <div class="pack">
+
+                <div class="text">
+                    <h3>Get In Touch</h3>
+                </div>
+
+                <div class="text">
+                    <h4>Email</h4>
+                    <span>mdhaiderali1012@gmail.com</span>
+                </div>
+
+                <div class="text">
+                    <h4>WhatsApp Number</h4>
+                    <span>+91-9891270661</span>
+                </div>
+
+                
+
+           <div class="social-button">
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-github" aria-hidden="true"></i> </a>
+            <a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i> </a>
+            <a href=""> <i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+           </div>
+
+            </div>
+
+
+          </div>
+
+          <form action="" name="formgroup">
             
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            
-            <button type="submit">Send</button>
-        </form>
+            <div class="input-control">
+                <label for="Name">Name</label><br>
+                <input type="text" placeholder="Enter your Name" id="name">
+            </div>
+
+            <div class="input-control">
+                <label for="Email">Email</label><br>
+                <input type="text" placeholder="Enter your Email" id="email">
+            </div>
+
+            <div class="input-control">
+                <label for="Conatact">Conatact Number</label><br>
+                <input type="text" placeholder="Enter your Conatact Number" id="phone">
+            </div>
+
+            <div class="input-control">
+                <label for="Subject">Subject</label><br>
+                <input type="text" placeholder="Enter your Subject" id="subject"> 
+            </div>
+          
+            <div class="input-control">
+                <label for="Message">Message</label><br>
+                <textarea name="" id="message" rows="3" placeholder="Enter your Message..."></textarea>
+            </div>
+
+            <div class="input-control">
+
+                <button type="button" onclick="sendemail()">Send</button>
+            </div>
+
+            </form>
+
+        </div>
+   
+
+        <!--success popup code start -->
+
+
+        <div class="popup" id="popup">
+         <div class="check">
+            <i class="fa fa-check-square" aria-hidden="true"></i>
+            <div class="para">Suceessfull</div>
+            <p>your data successfully received</p>
+            <button class="ok" onclick="remove()">OK</button>
+         </div>
+
+        </div>
+         <!--success popup code end -->
+
+
+        <!-- error popup code start-->
+        
+
+        <!-- error code end -->
+
     </div>
     
-    <footer class="footer">
-                <p>&copy; 2023 Your Company. All rights reserved.</p>
-                <p>Contact: contact@yourcompany.com</p>
-            </div
-        </div>
-    </footer>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+
+        function sendemail(){
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var sub = document.getElementById("subject").value;
+            var mess = document.getElementById("message").value;
+
+            var body = "Name :" + name + "<br/>Email :" + email + "<br/>phone number: " + phone + "<br/>User Message:" + mess;
+        
+          
+            Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "Enetr Your Register mail",
+            Password : "Enter your password",
+            To : "Enter your Receiver mail",
+            From : "Enter Your Register mail",
+            Subject : sub,
+            Body : body
+           }).then(
+           message => {
+            if(message=='OK'){
+            document.getElementById("popup").classList.add("frame");
+            document.getElementById("popup").style.visibility="visible"; 
+            document.getElementById("form-conatiner").style.visibility="hidden";
+            document.formgroup.reset();
+            }
+            else{
+            console.error(message);
+            document.getElementById("wrong").classList.add("frame");
+            document.getElementById("wrong").style.visibility="visible"; 
+            document.getElementById("form-conatiner").style.visibility="hidden";
+            }
+           }
+           ); 
+          
+        // confirm mail
+
+        var design = `<div style="display: grid; width: 100%; place-items: center;">
+
+<div style="width: 95%; height: 90px; background-color: #34568b;">
+    <p style="text-align: center; font-size: 30px; color: white;">Education Analysist</p>
+</div>
+
+<div style="margin-top: 15px;">
+    <p style="font-size: 22px; text-align: center;">Thank You Your Data successfully Received</p>
+</div>
+ga
+<div>
+    <p style="font-size: 15px;">thank this is my official youtube channel thank so muc to show interest my video 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, possimus! Lorem ipsum dolor sit amet consectetur 
+        adipisicing elit. Unde ab adipisci veritatis placeat quas earum dolores magnam quam, vel impedit!
+    </p>
+</div>
+<div>
+<p style="font-size: 25px; text-align: center;">Please Subscibe my channel</p>
+</div>
+
+</div>`
+
+       
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "examplemail638@gmail.com",
+            Password : "262C4BB58815A9031B0F2B75BD40DCEDA76A",
+            To : email,
+            From : "examplemail638@gmail.com",
+            Subject : "Mail from Education Analysist",
+            Body : design
+           })
+
+        }
+
+        function remove(){
+            document.getElementById("popup").classList.remove("frame");
+            document.getElementById("popup").style.visibility="hidden";
+            document.getElementById("form-conatiner").style.visibility="visible";
+        }
+
+        function wrongremove(){
+            document.getElementById("wrong").classList.remove("frame");
+            document.getElementById("wrong").style.visibility="hidden"; 
+            document.getElementById("form-conatiner").style.visibility="visible"; 
+
+        }
+
+        
+    </script>
+
+ 
 </body>
 </html>
