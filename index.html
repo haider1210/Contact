@@ -1,97 +1,107 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>Contact Form</title>
     <link rel="stylesheet" href="Contact_form.css">
-    <title>About us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div class="heading">
-        <h1>About Us</h1>
-        <h3>Welcome to ChatBot-H</h3>
-        <p>Hi! I am Haider.</p>
-     <marquee scrollamount="10" class="marquee">Thankyou! Adnan,Khalfan,Taslim,Arbaz for supporting.</marquee>
-    </div>
     <div class="container">
-        <section class="about">
-            <div class="about-image">
-                <img src="iqralogo.png" alt="logo">
+        <div class="form-container" id="form-conatiner">
+            <div class="info">
+                <div class="pack">
+                    <div class="text">
+                        <h3>Get In Touch</h3>
+                    </div>
+                    <div class="text">
+                        <h4>Email</h4>
+                        <span>mdhaiderali1012@gmail.com</span>
+                    </div>
+                    <div class="text">
+                        <h4>WhatsApp Number</h4>
+                        <span>+91-9891270661</span>
+                    </div>
+                    <div class="social-button">
+                        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-github" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="about-content">
-                <h2>About Iqra group  </h2>
-                <p>Explore the incredible skills of IQRA Group - a pioneering team focused on creating impressive websites and Android apps. Dedicated to excellence, IQRA Group uses its unique abilities to make creative solutions that go beyond limits. Our experts combine imagination with the latest technology, making eye-catching websites and feature-packed Android apps. With a history of success, IQRA Group is a symbol of cleverness and skill. Come join us in changing the digital world, as we discover new possibilities and set higher standards in development.</p>
-
-               
-            </div>
-            </div>
-  
-<!-- 
-      cards       -->
-
-      <div class="CardCenterA">
-        <div class="cardA r" >
-           
-            <div class="imageA">
-                <img src="mission.jpeg" alt="Card Image" background> </div>
-                <h3>MISSION</h3>
-           
-            <div class="contentA">
-                <p>The mission of IQRA Group is to excel in web and Android development by crafting innovative solutions. We aim to combine creativity with advanced technology to create captivating websites and feature-rich apps. Our goal is to push boundaries and set new standards in the digital world....</p>
-            </div>
+            <form action="" name="formgroup">
+                <div class="input-control">
+                    <label for="Name">Name <span class="required">*</span></label><br>
+                    <input type="text" placeholder="Enter your Name" id="name" required>
+                </div>
+                <div class="input-control">
+                    <label for="Email">Email <span class="required">*</span></label><br>
+                    <input type="email"  placeholder="Enter your Email" id="email" required>
+                </div>
+                <div class="input-control">
+                    <label for="Contact">Contact Number</label><br>
+                    <input type="text" placeholder="Enter your Contact Number" id="phone">
+                </div>
+                <div class="input-control">
+                    <label for="Subject">Subject</label><br>
+                    <input type="text" placeholder="Enter your Subject" id="subject"> 
+                </div>
+                <div class="input-control">
+                    <label for="Message">Message</label><br>
+                    <textarea name="" id="message" rows="3" placeholder="Enter your Message..." required></textarea>
+                </div>
+                <div class="input-control">
+                    <button type="button" onclick="sendemail()">Send</button>
+                </div>
+            </form>
         </div>
-    
-        <div class="cardA g" >
-          
-            
-            <div class="imageA">
-                <img src="vission.png" alt="Card Image"></div>
-                <h3>VISION</h3>
-            
-            <div class="contentA">
-                <p>our vision is clear and simple: to lead the way in web and Android development. We strive to create innovative solutions that make a real impact, pushing the boundaries of what's possible. Through our dedication to excellence, we aim to transform ideas into captivating websites and user-friendly apps...</p>
-            </div>
-        </div>
-    
-        <div class="cardA b" >
-           
-            <div class="imageA">
-                <img src="services.png" alt="Card Image"> </div>
-                <h3>SERVICES</h3>
-           
-            <div class="contentA">
-                <p>IQRA Group offers top-notch services in web and Android development. Our skilled team creates captivating websites and user-friendly Android applications. We specialize in crafting innovative solutions that push boundaries and exceed expectations. With a blend of creativity and cutting-edge technology, we deliver projects that stand out..</p>
-            </div>
-        </div>
-    
-        <div class="cardA y" >
-            
-            <div class="imageA">
-                <img src="achievement.png" alt="Card Image"></div>
-                <h3>ACHIEVEEMENTS</h3>
-            
-            <div class="contentA">
-                <p>IQRA Group has achieved remarkable success in both web and Android development. They have delivered outstanding websites and user-friendly Android applications, earning high praise from clients. Their innovative solutions have pushed boundaries, enhancing user experiences and engagement..</p>
+        <div class="popup" id="popup">
+            <div class="check">
+                <i class="fa fa-check-square" aria-hidden="true"></i>
+                <div class="para">Successful</div>
+                <p>Your data successfully received</p>
+                <button class="ok" onclick="remove()">OK</button>
             </div>
         </div>
     </div>
-        </section>
-    </div>
-<!-- 
-    footer -->
-    <footer>
-        <div class="footer-content">
-          <div class="footer-links">
-            <a href="#" class="footer-link">Home</a>
-            <a href="#" class="footer-link">Contact</a>
-            <a href="mailto:mdhaiderali1012@gmail.com" class="footer-link">Email</a>
-            <a href="https://wa.me/9891270661" class="footer-link">WhatsApp</a>
-          </div>
-          <div class="footer-info">
-            <p>&copy; 2023 Iqra-Z. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function sendemail() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var sub = document.getElementById("subject").value;
+            var mess = document.getElementById("message").value;
+            var body = "Name: " + name + "<br>Email: " + email + "<br>Contact number: " + phone + "<br>User Message: " + mess;
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "mdhaiderali1012@gmail.com",
+                Password: "1B9D3C5080A36EF349A4857E948455C0E963",
+                To: "mdhaideral7654@gmail.com",
+                From: "mdhaiderali1012@gmail.com",
+                Subject: sub,
+                Body: body
+            }).then(message => {
+                if (message === 'OK') {
+                    swal("Successful!", "Your data is successfully received", "success");
+                } else {
+                    swal("Something is wrong!", "Your data is not received", "error");
+                }
+            });
+        }
+    </script>
+
+
+ 
+
+   
 </body>
 </html>
